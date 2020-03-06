@@ -1,6 +1,6 @@
 import { Component, OnInit, OnChanges, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core';
 import { GithubService } from '../github.service';
-import { Subject, EMPTY, throwError, of } from 'rxjs';
+import { Subject, of } from 'rxjs';
 import { switchMap, tap, catchError, shareReplay, delay } from 'rxjs/operators';
 
 @Component({

@@ -53,7 +53,6 @@ export class GithubService {
     private handleError(err: HttpErrorResponse) {
         let errorMessage: string;
         
-        //errorMessage = `An error occurred: ${err.error.message}`;
         if(err.status === 404)
             errorMessage = "User not found";
         else if(err.status === 403)

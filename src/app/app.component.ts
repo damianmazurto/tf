@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
-import { catchError, filter, map, switchMap, mergeMap, mapTo, toArray, tap, flatMap, startWith, share, take, distinctUntilChanged, scan, delay } from 'rxjs/operators';
-import { from, forkJoin, of, Subject, merge, never, EMPTY } from 'rxjs';
+import { filter, mapTo, tap, startWith, distinctUntilChanged } from 'rxjs/operators';
+import { Subject, merge, } from 'rxjs';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
