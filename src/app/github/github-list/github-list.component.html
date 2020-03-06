@@ -1,0 +1,15 @@
+<div *ngIf="usernameChangedAction$ | async as repos">
+   <div class="repoContainer" *ngFor="let repo of repos">
+      <p><b>Repo name: </b>{{repo.name}}</p>
+      <p><b>Owner login: </b>{{repo.login}}</p>
+      <div class="branchesContainer" *ngIf="repo.branches as branches">
+        <p><b>Branches: </b></p>
+        <ul>
+        <li *ngFor="let branch of branches">
+          <p>{{branch.name}} ({{branch.commit.sha}})</p>
+        </li>
+        </ul>
+      </div>
+    </div>
+</div>
+    
