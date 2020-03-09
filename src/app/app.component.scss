@@ -1,3 +1,20 @@
+:host {
+    color: #333;
+    box-sizing: border-box;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 600px;
+    margin: 0 auto;
+    margin-top: 100px;
+  }
+
 .loader {
     position: absolute;
     top: 8px;
@@ -6,14 +23,27 @@
 }
 
 button {
-    overflow:hidden;
     border: 1px solid lightgray;
-    position: relative;
-    width: 100px;
+    border-radius: 5px;
     height: 35px;
+    font-size: 20px;
+    overflow:hidden;
+    position: relative;
+    padding: 5px 15px;
+    width: 100px;
 }
-input.ng-invalid.ng-touched {
+
+form.submitted > input.ng-invalid,
+input.ng-invalid.ng-dirty {
     border: 2px solid darkred;
+}
+
+input {
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    font-size: 20px;
+    margin-right: 10px;
+    padding: 5px 15px;
 }
 
 .error {

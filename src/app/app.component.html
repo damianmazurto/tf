@@ -1,41 +1,10 @@
-<style>
-  :host {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    font-size: 14px;
-    color: #333;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 600px;
-    margin: 0 auto;
-    margin-top: 100px;
-  }
-
-  input {
-    font-size: 20px;
-    padding: 5px 15px;
-    margin-right: 10px;
-  }
-
-  button {
-    font-size: 20px;
-    padding: 5px 15px;
-  }
-</style>
-
 <div class="content" role="main">
 
   <form [formGroup]="githubFormGroup" 
         (ngSubmit)="search()" 
         #githubForm="ngForm" 
         novalidate
+        [ngClass]="{submitted: githubForm.submitted}"
   >
     <input type="text" name="username" formControlName="username" placeholder="username"/>
     <button type="submit" [disabled]="loading$ | async">
@@ -45,14 +14,14 @@
 
     <div
       class="error"
-      *ngIf="githubFormGroup.get('username').hasError('required') && githubForm.submitted">
+      *ngIf="githubFormGroup.get('username').hasError('required') && (githubForm.submitted || githubFormGroup.get('username').dirty)">
         Username is required
     </div>
 
     <div 
       class="error" 
       *ngIf="githubForm.submitted && githubFormGroup.get('username')?.errors?.serverError as error">
-      {{error}}
+        {{error}}
     </div>
   </form>
 
