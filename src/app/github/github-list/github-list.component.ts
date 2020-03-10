@@ -16,7 +16,7 @@ export class GithubListComponent implements OnInit, OnChanges {
   @Input() username: string;
   @Output() onFinish = new EventEmitter<any>();
 
-  private usernameChangedSubject = new Subject<string>();
+  public usernameChangedSubject = new Subject<string>();
   usernameChangedAction$ = this.usernameChangedSubject.asObservable().pipe(
     delay(1000),
     switchMap((username) => (

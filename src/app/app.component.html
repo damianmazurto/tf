@@ -7,7 +7,7 @@
         [ngClass]="{submitted: githubForm.submitted}"
   >
     <input type="text" name="username" formControlName="username" placeholder="username"/>
-    <button type="submit" [disabled]="loading$ | async">
+    <button class="search" type="submit" [disabled]="loading$ | async">
       <span *ngIf="loading$ | async"><img class="loader" src="assets/8.gif"></span>
       <span *ngIf="!(loading$ | async)">Search</span>
     </button>
